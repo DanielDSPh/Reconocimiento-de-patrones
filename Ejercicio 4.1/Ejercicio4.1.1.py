@@ -8,7 +8,7 @@ from skimage import io
 from PIL import Image
 
 # Ruta de la imagen
-ruta = r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\LenaOrig.jpg"
+ruta = r"Imagenes\LenaOrig.jpg"
 
 # 1. Matplotlib
 img1 = mpimg.imread(ruta)
