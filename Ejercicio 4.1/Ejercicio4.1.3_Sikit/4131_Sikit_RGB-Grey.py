@@ -7,8 +7,8 @@ from skimage import io
 import matplotlib.pyplot as plt
 
 #Cargamos las imagenes
-lena = io.imread(r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\LenaOrig.jpg")
-peppers = io.imread(r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\peppers_color2.jpg")
+lena = io.imread(r"Imagenes\LenaOrig.jpg")
+peppers = io.imread(r"Imagenes\peppers_color2.jpg")
 
 #Separamos canales
 lena_r = lena[:, :, 0]

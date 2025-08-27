@@ -7,8 +7,8 @@ import cv2
 import matplotlib.pyplot as plt
 
 #Ruta de las imagenes
-lena = r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\LenaOrig.jpg"
-peppers = r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\peppers_color.tif"
+lena = r"Imagenes\LenaOrig.jpg"
+peppers = r"Imagenes\peppers_color.tif"
 
 #Cargamos imagenes
 lena_img = cv2.cvtColor(cv2.imread(lena), cv2.COLOR_BGR2HSV)
