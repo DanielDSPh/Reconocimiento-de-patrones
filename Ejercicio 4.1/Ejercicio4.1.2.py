@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import matplotlib.image as mpimg
 
 # Ruta de la imagen
-ruta = r"C:\Users\Rixde\Documents\ReconPatrones_ws\reconpatrones2026-1\Pracitcas\P0\Imagenes\LenaOrig.jpg"
+ruta = r"Imagenes\LenaOrig.jpg"
 
 # ===== Matplotlib =====
 imagen_matplotlib = mpimg.imread(ruta)
