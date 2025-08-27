@@ -17,7 +17,6 @@ try:
     # Convertir a array de numpy
     image_array = np.frombuffer(raw_data, dtype=dtype)
     
-    # Reorganizar a la forma correcta (600x800)
     image = image_array.reshape((height, width))
     
     print(f"Imagen cargada correctamente")
