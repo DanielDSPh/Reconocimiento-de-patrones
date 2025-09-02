@@ -68,3 +68,4 @@ print(mushroom["poisonous"].value_counts())
 print("\n=== 3.8 Primeras 10 filas y 2 primeras columnas ===")
 print(mushroom.iloc[:10, :2])
 
+#-------------------------- comentario de prueba
