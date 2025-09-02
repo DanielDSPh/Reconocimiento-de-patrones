@@ -119,3 +119,21 @@ plt.figure(figsize=(6,6))
 plt.pie(frecuencias, labels=frecuencias.index, autopct='%1.1f%%', startangle=90)
 plt.title("Distribución de especies en el dataset Iris")
 plt.show()
+
+# ======================================
+# 3.11 Relación entre longitud y ancho del sépalo por especie
+# ======================================
+print("\n=== 3.11 Gráfico de dispersión de sépalo (longitud vs ancho) ===")
+
+plt.figure(figsize=(8,6))
+
+# Graficar cada especie con un color distinto
+for especie, datos in iris.groupby("species"):
+    plt.scatter(datos["sepal_length"], datos["sepal_width"], label=especie, alpha=0.7)
+
+plt.xlabel("Longitud del sépalo (cm)")
+plt.ylabel("Ancho del sépalo (cm)")
+plt.title("Relación entre longitud y ancho del sépalo por especie")
+plt.legend(title="Especie")
+plt.grid(True, linestyle="--", alpha=0.5)
+plt.show()
