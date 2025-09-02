@@ -49,7 +49,7 @@ print("Moda:\n", desc.loc["top"])
 # 3.6 Número de muestras por clase
 # ======================================
 print("\n=== 3.6 Número de muestras por clase (comestibles vs venenosos) ===")
-print(mushroom["poisonous"].value_counts())
+print(mushroom[0].value_counts())
 
 # ======================================
 # 3.7 Añadir encabezados y repetir conteo por clase
@@ -67,5 +67,3 @@ print(mushroom["poisonous"].value_counts())
 # ======================================
 print("\n=== 3.8 Primeras 10 filas y 2 primeras columnas ===")
 print(mushroom.iloc[:10, :2])
-
-#-------------------------- comentario de prueba
