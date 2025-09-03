@@ -6,7 +6,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns # Necesitas instalar esta libreria para las nuevas visualizaciones
 from PIL import Image # Necesitas instalar esta libreria para el analisis de imagenes
 import cv2 # Necesitas esta libreria para procesar la imagen de manera mas eficaz
-#Hola
+
 # ======================================
 # 3.1 Cargar los datos Iris
 # ======================================
