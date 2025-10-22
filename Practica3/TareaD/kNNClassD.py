@@ -68,3 +68,45 @@ class kNN():
     def normalize(self, data):
         normalized_data = (data-data.min())/(data.max()-data.min())
         return normalized_data
+    
+    def getPrediction(self, X_test):
+        """
+        k-NN regresión: para cada instancia en X_test devuelve
+        la media de Y_train de sus k vecinos más cercanos.
+        Retorna un DataFrame con el mismo índice que X_test.
+        """
+        preds = []
+
+        for i in range(len(X_test)):
+            test_instance = X_test.iloc[i]
+
+            # Distancias a todo el set de entrenamiento (misma métrica que usas en clasificación)
+            distances = []
+            for j in range(len(self.X_train)):
+                train_instance = self.X_train.iloc[j]
+                d = self.Minkowski_distance(test_instance, train_instance)
+                distances.append(d)
+
+            # Tomamos los k vecinos más cercanos
+            df_dists = pd.DataFrame({"dist": distances}, index=self.Y_train.index)
+            df_knn = df_dists.nsmallest(self.k, "dist")
+
+            # Valores de salida de esos vecinos
+            y_neighbors = self.Y_train.loc[df_knn.index]
+
+            # Media (si Y es Serie -> escalar; si Y es DataFrame -> vector por columnas)
+            if isinstance(y_neighbors, pd.Series):
+                pred = y_neighbors.mean()
+            else:  # múltiples columnas en Y_train
+                pred = y_neighbors.mean(axis=0)
+
+            preds.append(pred)
+
+        # Convertimos a DataFrame y alineamos índice con X_test
+        if isinstance(self.Y_train, pd.Series):
+            col_name = self.Y_train.name or "prediction"
+            preds_df = pd.DataFrame(preds, columns=[col_name], index=X_test.index)
+        else:
+            preds_df = pd.DataFrame(preds, columns=self.Y_train.columns, index=X_test.index)
+
+        return preds_df
