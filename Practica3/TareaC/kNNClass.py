@@ -17,8 +17,8 @@ class kNN():
     # training k-NN method
     # X_train is the training data given with input attributes. n-th row correponds to n-th instance.
     # Y_train is the output data (output vector): n-th element of Y_train is the output value for n-th instance in X_train.
-        self.X_train = X_train
-        self.Y_train = Y_train
+        self.X_train = X_train #muestras de entrenamiento
+        self.Y_train = Y_train #clases asociadas
         self.classes_ = pd.Index(sorted(pd.unique(Y_train)))   
          
     def getDiscreteClassification(self, X_test):
@@ -70,7 +70,7 @@ class kNN():
         for i in range(len(X_test)):
             test_instance = X_test.iloc[i]
 
-            # Distancias a todos los ejemplos de entrenamiento (mismo Minkowski que usas en la clase)
+            # Distancias a todos los ejemplos de entrenamiento 
             distances = []
             for j in range(len(self.X_train)):
                 train_instance = self.X_train.iloc[j]
@@ -84,7 +84,7 @@ class kNN():
             # Clases de los vecinos
             vecinos = self.Y_train.loc[df_knn.index]
 
-            # Proporciones por clase (posterior por frecuencia relativa)
+            # Proporciones por clase 
             counts = vecinos.value_counts(normalize=True)
 
             # Construir la fila en el mismo orden de columnas (todas las clases)
@@ -104,7 +104,7 @@ class kNN():
     
         # Calculate Minkowski distance using the exponent exp
         for i in range(len(x1)):
-            distance = distance + abs(x1[i] - x2[i])**self.exp
+            distance = distance + abs(x1.iloc[i] - x2.iloc[i])**self.exp
         
         distance = distance**(1/self.exp)
     
